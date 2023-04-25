@@ -36,13 +36,13 @@ public class FBPosting {
 
             // Find & put down sample post text into text field
             WebElement active = driver.switchTo().activeElement();
-            active.sendKeys("Royale with Cheese");
+            active.sendKeys("You merely adopted the dark. I was born in it, molded by it.");
             Thread.sleep(1000);
 
             /* Could not locate the element for the post button, so this uses
             TAB & ENTER keys to navigate to and push the button instead */
             for (int i = 0; i < 10; i++) {
-                //active.sendKeys(Keys.TAB);
+                active.sendKeys(Keys.TAB);
                 active = driver.switchTo().activeElement();
             }
             active.sendKeys(Keys.ENTER);
@@ -50,7 +50,7 @@ public class FBPosting {
             // Find the post, loggs the outcome
             try {
                 // Obviously only works with one unique post...
-                WebElement post = driver.findElement(By.xpath("//*[contains(text(), 'Royale')]"));
+                WebElement post = driver.findElement(By.xpath("//*[contains(text(), 'adopted the dark')]"));
                 Logback.postSuccess();
             } catch (Exception all) {
                 Logback.postFailure();
